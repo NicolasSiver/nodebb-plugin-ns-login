@@ -99,7 +99,7 @@
                                     message: error.message
                                 });
                             }
-                            winston.log('verbose', 'Successful external login, uid: %d', uid);
+                            winston.log('verbose', '[plugins/ns-login] Successful external login, uid: %d', uid);
                             res.json(user);
                         });
                     });
