@@ -35,7 +35,8 @@
          * theme_config: '/path/to/NodeBB/node_modules/nodebb-theme-lavender/theme.json',
          * NODE_ENV: 'development'
          */
-        nconf: NodeBB.require('nconf')
+        nconf  : NodeBB.require('nconf'),
+        winston: NodeBB.require('winston')
     };
 
 })(module, require.main);

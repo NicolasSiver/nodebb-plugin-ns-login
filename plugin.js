@@ -8,6 +8,9 @@
         nodebb       = require('./app/nodebb'),
         utils        = nodebb.utils,
         user         = nodebb.user,
+        db           = nodebb.db,
+        passwordUtil = nodebb.password,
+        winston      = nodebb.winston,
 
         store        = new ExpressBrute.MemoryStore(),
         settings     = {
@@ -43,11 +46,18 @@
                         }
                     }),
                     function (req, res, next) {
-                        var username = req.body.username, userSlug = null, password = req.body.password, uid = null;
+                        var username = req.body.username, userSlug = null,
+                            password = req.body.password, uid = null, userObject = null;
 
                         if (!username) {
                             return res.status(400).json({
                                 message: 'Username is not provided, username and password are required fields'
+                            });
+                        }
+
+                        if (!password) {
+                            return res.status(400).json({
+                                message: 'Password is empty'
                             });
                         }
 
@@ -61,9 +71,27 @@
                                 }
 
                                 uid = _uid;
+                                next();
                             },
                             function (next) {
-                                user.getUserData(uid, next);
+                                async.parallel({
+                                    user   : async.apply(user.getUserData, uid),
+                                    secure : async.apply(db.getObjectFields, 'user:' + uid, ['password', 'banned', 'passwordExpiry']),
+                                    isAdmin: async.apply(user.isAdministrator, uid)
+                                }, next);
+                            },
+                            function (payload, next) {
+                                if (parseInt(payload.secure.banned) === 1) {
+                                    return next(new Error('User ' + userSlug + ' is banned.'));
+                                }
+                                userObject = payload.user;
+                                passwordUtil.compare(password, payload.secure.password, next);
+                            },
+                            function (passwordMatch, next) {
+                                if (!passwordMatch) {
+                                    return next(new Error('Invalid Password'));
+                                }
+                                next(null, userObject);
                             }
                         ], function (error, user) {
                             if (error) {
@@ -71,6 +99,7 @@
                                     message: error.message
                                 });
                             }
+                            winston.log('verbose', 'Successful external login, uid: %d', uid);
                             res.json(user);
                         });
                     });
