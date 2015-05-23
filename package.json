@@ -23,5 +23,10 @@
   "bugs": {
     "url": "https://github.com/NicolasSiver/nodebb-plugin-ns-login/issues"
   },
-  "homepage": "https://github.com/NicolasSiver/nodebb-plugin-ns-login#readme"
+  "homepage": "https://github.com/NicolasSiver/nodebb-plugin-ns-login#readme",
+  "dependencies": {
+    "async": "^1.0.0",
+    "express-brute": "^0.5.3",
+    "moment": "^2.10.3"
+  }
 }

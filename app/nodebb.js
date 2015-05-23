@@ -6,6 +6,7 @@
         db           : NodeBB.require('./src/database'),
         emitter      : NodeBB.require('./src/emitter'),
         meta         : NodeBB.require('./src/meta'),
+        password     : NodeBB.require('./src/password'),
         pluginSockets: NodeBB.require('./src/socket.io/plugins'),
         postTools    : NodeBB.require('./src/postTools'),
         settings     : NodeBB.require('./src/settings'),
