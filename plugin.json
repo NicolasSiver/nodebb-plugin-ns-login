@@ -3,13 +3,12 @@
   "name": "NodeBB Login",
   "description": "Simple API endpoint for external login. Special use case: external login check if user's credentials are valid.",
   "url": "https://github.com/NicolasSiver/nodebb-plugin-ns-login",
-  "library": "./plugin.js",
+  "library": "./plugin/index.js",
   "hooks": [
     {
       "hook": "static:app.load",
       "method": "hooks.statics.load"
     }
   ],
-  "staticDirs": {
-  }
+  "staticDirs": {}
 }

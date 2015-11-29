@@ -5,7 +5,7 @@
         moment       = require('moment'),
         async        = require('async'),
 
-        nodebb       = require('./app/nodebb'),
+        nodebb       = require('./nodebb'),
         utils        = nodebb.utils,
         user         = nodebb.user,
         db           = nodebb.db,
