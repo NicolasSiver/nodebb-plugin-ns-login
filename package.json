@@ -28,5 +28,8 @@
     "async": "^1.0.0",
     "express-brute": "^0.5.3",
     "moment": "^2.10.3"
+  },
+  "nbbpm": {
+    "compatibility": "^0.9.0"
   }
 }
