@@ -1,5 +1,9 @@
 #Changelog
 
+### v2.0.1 - 4/7/2016
+
+- Compatibility with 1.0 NodeBB
+
 ### v2.0.0 - 11/29/2015
 
 - Compatibility with 0.9 NodeBB
