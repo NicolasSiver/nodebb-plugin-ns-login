@@ -76,7 +76,7 @@
                             function (next) {
                                 async.parallel({
                                     user   : async.apply(user.getUserData, uid),
-                                    secure : async.apply(db.getObjectFields, 'user:' + uid, ['password', 'banned', 'passwordExpiry']),
+                                    secure : async.apply(db.getObjectFields, 'user:' + uid, ['password', 'banned', 'passwordExpiry', 'email:confirmed']),
                                     isAdmin: async.apply(user.isAdministrator, uid)
                                 }, next);
                             },
@@ -85,6 +85,7 @@
                                     return next(new Error('User ' + userSlug + ' is banned.'));
                                 }
                                 userObject = payload.user;
+                                userObject['email:confirmed'] = parseInt(payload.secure['email:confirmed']) === 1;
                                 passwordUtil.compare(password, payload.secure.password, next);
                             },
                             function (passwordMatch, next) {
