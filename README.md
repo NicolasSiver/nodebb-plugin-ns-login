@@ -28,6 +28,7 @@ Successful login returns user data, it looks like:
 "username": "Nicolas",
 "userslug": "nicolas",
 "email": "nicolas@email.com",
+"email:confirmed": 1,
 "joindate": 1432379229517,
 "picture": "https://secure.gravatar.com/avatar/16e774e25b68ab1d41d2cc269a29983a?size=128&default=identicon&rating=pg",
 "gravatarpicture": "https://secure.gravatar.com/avatar/16e774e25b68ab1d41d2cc269a29983a?size=128&default=identicon&rating=pg",
