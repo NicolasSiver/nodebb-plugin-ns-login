@@ -46,8 +46,11 @@
                         }
                     }),
                     function (req, res, next) {
-                        var username = req.body.username, userSlug = null,
-                            password = req.body.password, uid = null, userObject = null;
+                        var username   = req.body.username,
+                            userSlug   = null,
+                            password   = req.body.password,
+                            uid        = null,
+                            userObject = null;
 
                         if (!username) {
                             return res.status(400).json({
@@ -85,7 +88,7 @@
                                     return next(new Error('User ' + userSlug + ' is banned.'));
                                 }
                                 userObject = payload.user;
-                                userObject['email:confirmed'] = parseInt(payload.secure['email:confirmed']) === 1;
+                                userObject['email:confirmed'] = parseInt(payload.secure['email:confirmed']);
                                 passwordUtil.compare(password, payload.secure.password, next);
                             },
                             function (passwordMatch, next) {
