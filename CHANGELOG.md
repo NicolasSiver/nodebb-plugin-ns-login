@@ -1,5 +1,9 @@
 #Changelog
 
+### v2.1.0 - 2/26/2017
+
+- Add `email:confirmed` field
+
 ### v2.0.2 - 4/7/2016
 
 - Update library dependencies
