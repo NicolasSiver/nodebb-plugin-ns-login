@@ -52,15 +52,19 @@ Successful login returns user data, it looks like:
 ```
 
 ## Using plugin as internal REST API
-Whenever used as internal API disable IP limiter in `userDefence` instance of BruteForce.
+
+Whenever used as internal API disable IP limiter in `userDefence` instance of `express-brute`.
+
 ```
- userDefence.getMiddleware({
-        ignoreIP: true, // Set true if API is used internaly from few IPs
-        key: function (req, res, next) {
-            // prevent too many attempts for the same username
-            next(req.body.username);
-        }
-    }),
+userDefence.getMiddleware({
+    // Disregard IP address when matching requests if set to true
+    // Set true if API is used internaly from few IPs
+    ignoreIP: true, 
+    key: function (req, res, next) {
+        // prevent too many attempts for the same username
+        next(req.body.username);
+    }
+})
 ```
 
 ## Additional information
