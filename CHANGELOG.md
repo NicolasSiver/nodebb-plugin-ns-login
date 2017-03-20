@@ -1,5 +1,9 @@
 #Changelog
 
+### v2.2.0 - 3/20/2017
+
+- Add email support as a login credential
+
 ### v2.1.0 - 2/26/2017
 
 - Add `email:confirmed` field
