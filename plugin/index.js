@@ -47,7 +47,6 @@
                     }),
                     function (req, res, next) {
                         var username   = req.body.username,
-                            userSlug   = null,
                             password   = req.body.password,
                             uid        = null,
                             userObject = null;
@@ -64,13 +63,11 @@
                             });
                         }
 
-                        userSlug = utils.slugify(username);
-
                         async.waterfall([
-                            async.apply(user.getUidByUserslug, userSlug),
+                            async.apply(user.getUidByUserslug, utils.slugify(username)),
                             function (_uid, next) {
                                 if (!_uid) {
-                                    return next(new Error('User ' + userSlug + ' does not exist'));
+                                    return next(new Error('User ' + username + ' does not exist'));
                                 }
 
                                 uid = _uid;
@@ -85,7 +82,7 @@
                             },
                             function (payload, next) {
                                 if (parseInt(payload.secure.banned) === 1) {
-                                    return next(new Error('User ' + userSlug + ' is banned.'));
+                                    return next(new Error('User ' + username + ' is banned.'));
                                 }
                                 userObject = payload.user;
                                 userObject['email:confirmed'] = parseInt(payload.secure['email:confirmed']);
