@@ -64,7 +64,13 @@
                         }
 
                         async.waterfall([
-                            async.apply(user.getUidByUserslug, utils.slugify(username)),
+                            function (next) {
+                                if (utils.isEmailValid(username)) {
+                                    user.getUidByEmail(username, next);
+                                } else {
+                                    user.getUidByUserslug(utils.slugify(username), next);
+                                }
+                            },
                             function (_uid, next) {
                                 if (!_uid) {
                                     return next(new Error('User ' + username + ' does not exist'));
