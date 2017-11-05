@@ -70,4 +70,4 @@ userDefence.getMiddleware({
 ## Additional information
 
 - It is simple
-- It has brute-force defence
+- It has brute-force defence. The brute-force counter resets on successful login.
