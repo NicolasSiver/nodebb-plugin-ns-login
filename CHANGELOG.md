@@ -1,29 +1,29 @@
 #Changelog
 
-### v2.3.0 - 11/5/2017
+## [2.3.0] - 2017-11-05
 
 - Added reset for the successful login
 
-### v2.2.0 - 3/20/2017
+## [2.2.0] - 2017-03-20
 
-- Add email support as a login credential
+- Added email support as a login credential
 
-### v2.1.0 - 2/26/2017
+## [2.1.0] - 2017-02-26
 
-- Add `email:confirmed` field
+- Added `email:confirmed` field
 
-### v2.0.2 - 4/7/2016
+## [2.0.2] - 2016-04-07
 
-- Update library dependencies
+- Changed library dependencies
 
-### v2.0.1 - 4/7/2016
+## [2.0.1] - 2016-04-07
 
-- Compatibility with 1.0 NodeBB
+- Added compatibility with 1.0 NodeBB
 
-### v2.0.0 - 11/29/2015
+## [2.0.0] - 2015-11-29
 
-- Compatibility with 0.9 NodeBB
+- Added compatibility with 0.9 NodeBB
 
-### v1.0.0 - 5/23/2015
+## [1.0.0] - 2015-05-23
 
-- Very first release
+- Initial release
