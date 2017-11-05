@@ -1,5 +1,9 @@
 #Changelog
 
+### v2.3.0 - 11/5/2017
+
+- Added reset for the successful login
+
 ### v2.2.0 - 3/20/2017
 
 - Add email support as a login credential
