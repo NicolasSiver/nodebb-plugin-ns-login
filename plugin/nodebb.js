@@ -4,7 +4,6 @@
     Module.exports = {
         adminSockets : NodeBB.require('./src/socket.io/admin').plugins,
         db           : NodeBB.require('./src/database'),
-        emitter      : NodeBB.require('./src/emitter'),
         meta         : NodeBB.require('./src/meta'),
         password     : NodeBB.require('./src/password'),
         pluginSockets: NodeBB.require('./src/socket.io/plugins'),
