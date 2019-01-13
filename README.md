@@ -3,9 +3,6 @@
 Simple API endpoint for external login. Special use case: external login check if user's credentials are valid.
 
 ![Version](https://img.shields.io/npm/v/nodebb-plugin-ns-login.svg)
-[![bitHound Dependencies](https://www.bithound.io/github/NicolasSiver/nodebb-plugin-ns-login/badges/dependencies.svg)](https://www.bithound.io/github/NicolasSiver/nodebb-plugin-ns-login/master/dependencies/npm)
-![bitHound Score](https://www.bithound.io/github/NicolasSiver/nodebb-plugin-ns-login/badges/score.svg)
-![Code Climate](https://img.shields.io/codeclimate/github/NicolasSiver/nodebb-plugin-ns-login.svg)
 
 ## API
 
