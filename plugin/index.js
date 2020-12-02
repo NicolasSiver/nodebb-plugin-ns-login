@@ -82,7 +82,7 @@
                             function (next) {
                                 async.parallel({
                                     user   : async.apply(user.getUserData, uid),
-                                    secure : async.apply(db.getObjectFields, 'user:' + uid, ['password', 'banned', 'passwordExpiry', 'email:confirmed']),
+                                    secure : async.apply(db.getObjectFields, 'user:' + uid, ['password', 'password:shaWrapped', 'banned', 'passwordExpiry', 'email:confirmed']),
                                     isAdmin: async.apply(user.isAdministrator, uid)
                                 }, next);
                             },
@@ -92,7 +92,7 @@
                                 }
                                 userObject = payload.user;
                                 userObject['email:confirmed'] = parseInt(payload.secure['email:confirmed']);
-                                passwordUtil.compare(password, payload.secure.password, next);
+                                passwordUtil.compare(password, payload.secure.password, !!parseInt(payload.secure['password:shaWrapped'], 10), next);
                             },
                             function (passwordMatch, next) {
                                 if (!passwordMatch) {
