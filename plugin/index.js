@@ -4,7 +4,7 @@
     var ExpressBrute = require('express-brute'),
         moment       = require('moment'),
         async        = require('async'),
-        slugify      = require('slugify'),
+        slugify      = require.main.require('./src/slugify'),
 
         nodebb       = require('./nodebb'),
         utils        = nodebb.utils,
