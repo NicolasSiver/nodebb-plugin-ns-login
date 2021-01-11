@@ -7,6 +7,7 @@
 
         nodebb       = require('./nodebb'),
         utils        = nodebb.utils,
+        slugify      = nodebb.slugify,
         user         = nodebb.user,
         db           = nodebb.db,
         passwordUtil = nodebb.password,
@@ -68,7 +69,7 @@
                                 if (utils.isEmailValid(username)) {
                                     user.getUidByEmail(username, next);
                                 } else {
-                                    user.getUidByUserslug(utils.slugify(username), next);
+                                    user.getUidByUserslug(slugify(username), next);
                                 }
                             },
                             function (_uid, next) {
