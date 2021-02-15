@@ -30,6 +30,6 @@
     "moment": "^2.18.0"
   },
   "nbbpm": {
-    "compatibility": "~1.11.0"
+    "compatibility": "~1.16.0"
   }
 }

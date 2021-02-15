@@ -9,6 +9,7 @@
         pluginSockets: NodeBB.require('./src/socket.io/plugins'),
         postTools    : NodeBB.require('./src/posts/tools'),
         settings     : NodeBB.require('./src/settings'),
+        slugify      : NodeBB.require('./src/slugify'),
         socketIndex  : NodeBB.require('./src/socket.io/index'),
         topics       : NodeBB.require('./src/topics'),
         user         : NodeBB.require('./src/user'),
