@@ -68,7 +68,7 @@
                                 if (utils.isEmailValid(username)) {
                                     user.getUidByEmail(username, next);
                                 } else {
-                                    user.getUidByUserslug(utils.slugify(username), next);
+                                    user.getUidByUserslug(nodebb.slugify(username), next);
                                 }
                             },
                             function (_uid, next) {
