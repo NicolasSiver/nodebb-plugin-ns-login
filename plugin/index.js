@@ -23,7 +23,7 @@
         userDefence  = new ExpressBrute(store, settings);
 
     function failCallback(req, res, next, nextValidRequestDate) {
-        res.status(403).json({
+        res.status(429).json({
             message: 'You have made too many failed attempts in a short period of time, please try again ' + moment(nextValidRequestDate).fromNow()
         });
     }
@@ -102,6 +102,7 @@
                             }
                         ], function (error, user) {
                             if (error) {
+                                winston.log('verbose', '[plugins/ns-login] Error: ' + error.message);
                                 return res.status(403).json({
                                     message: error.message
                                 });
